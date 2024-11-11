@@ -87,31 +87,31 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     {
         Logo: Building2,
         title: "4RH",
-        description: "Conception et développement d'une application web interne pour la gestion des ressources humaines pour l'entreprise Neo4T.",
+        description: "Conception et développement d'une application web interne pour la gestion des ressources humaines de l'entreprise Neo4T.",
         image: "/images/4RH.png"
     },
     {
         Logo: Leaf,
         title: "Permacool",
-        description: "Conception et développement d'une application mobile from-scratch permettant d'avoir un suivi de ses plantations et des informations sur les plantes pour les utilisateurs.",
+        description: "Conception et développement from scratch d'une application mobile permettant aux utilisateurs de suivre leurs plantations et d'accéder à des informations détaillées sur les plantes.",
         image: "/images/permacool.png"
     },
     {
         Logo: Figma,
         title: "OOTD",
-        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de mode et de vêtements. Réalisation du modèle de données et début du développement.",
+        description: "Réalisation des maquettes de design pour une application de réseau social dédiée aux passionnés de mode et de vêtements. Élaboration du modèle de données et lancement des premières étapes de développement.",
         image: "/images/ootd3.png"
     },
     {
         Logo: Film,
         title: "MiPi",
-        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de cinéma et de série TV.",
+        description: "Création des maquettes de design pour une application de réseau social dédiée aux passionnés de cinéma et de séries TV.",
         image: "/images/mipi.png"
     },
     {
         Logo: Wallet,
         title: "SmartBuget",
-        description: "Début de conception d'une application multi-plateforme pour la gestion de budgets concernant les dépenses mensuels."
+        description: "Première phase de conception d'une application multiplateforme pour la gestion des budgets et des dépenses mensuelles."
     },
     
 
