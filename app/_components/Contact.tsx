@@ -6,6 +6,7 @@ import { ContactCard } from "./ContactCard";
 export const Contact = () => {
     return (
         <Section className="flex flex-col items-start gap-4">
+            <div className="animate-in w-full" style={{ "--index": 6 } as React.CSSProperties}>
             <Badge variant="outline" color="primary">📞 Contact</Badge>
             <h2 className="pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Je serais ravi de travailler avec vous 
@@ -15,7 +16,7 @@ export const Contact = () => {
             <ContactCard url="https://www.linkedin.com/in/pierre-thouvenot/" image="/images/photo-tp.png" mediumImage="https://img.freepik.com/vecteurs-premium/linkedin-logo_578229-227.jpg" name="LinkedIn" description="Contactez-moi" />
             <ContactCard image="/images/photo-tp.png" mediumImage="https://png.pngtree.com/png-vector/20190927/ourmid/pngtree-phone-icon-png-image_1757859.jpg" name="Appelez moi" description="06 67 84 67 27" />
             </div>
-
+            </div>
         </Section>
     );
 }

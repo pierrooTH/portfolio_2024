@@ -53,7 +53,7 @@ export const Status = () => {
 
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
-            <div className="flex-[3] w-full">
+            <div className="flex-[3] w-full animate-in" style={{ "--index": 4 } as React.CSSProperties}>
                 <Card ref={listRef}
                     onMouseMove={(e) => handleMouseMove(e)} className="w-full p-4 flex flex-col gap-2">
                     <p className="text-lg text-muted-foreground font-bold">Projets annexes, fun & professionnels</p>
@@ -64,7 +64,7 @@ export const Status = () => {
                     </div>
                 </Card>
             </div>
-            <div className="flex-[2] w-full flex flex-col gap-4">
+            <div className="flex-[2] w-full flex flex-col gap-4 animate-in" style={{ "--index": 4} as React.CSSProperties}>
                 <Card className="p-4 flex-1">
                     <p className="text-lg text-muted-foreground font-bold">Expériences professionnelles</p>
                     <div className="flex flex-col gap-4">

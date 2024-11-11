@@ -6,7 +6,8 @@ import { NodeJSIcon } from "./icons/NodeJSIcon"
 import { TypeScriptIcon } from "./icons/TypeScriptIcon"
 
 export const Skills = () => {
-    return <Section className="flex flex-col items-start gap-4">
+    return <Section className="flex flex-col items-start gap-4" >
+        <div className="animate-in" style={{ "--index": 5 } as React.CSSProperties}>
         <Badge variant="outline" color="primary">🛠️ Compétences</Badge>
         <h2 className="pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         J&apos;adore travailler avec...
@@ -35,6 +36,7 @@ export const Skills = () => {
                     TypeScript
                 </h3>
                 <p className="text-sm text-muted-foreground leading-6">J&apos;utilise <Code>TypeScript</Code> pour écrire un code plus <u>robuste</u> et <u>maintenable</u>, en ajoutant des types statiques qui améliorent la <i>sécurité</i> et la <i>clarté</i> du développement.</p>
+            </div>
             </div>
         </div>
 
