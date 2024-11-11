@@ -64,7 +64,7 @@ export const Status = () => {
                     </div>
                 </Card>
             </div>
-            <div className="flex-[2] w-full flex flex-col gap-4 animate-in" style={{ "--index": 4} as React.CSSProperties}>
+            <div className="flex-[2] w-full flex flex-col gap-4 animate-in -z-10" style={{ "--index": 4} as React.CSSProperties}>
                 <Card className="p-4 flex-1">
                     <p className="text-lg text-muted-foreground font-bold">Expériences professionnelles</p>
                     <div className="flex flex-col gap-4">
