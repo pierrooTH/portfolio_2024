@@ -45,7 +45,3 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
-.animate-in {
-  animation-delay: calc(var(--index) * 130ms);
-}

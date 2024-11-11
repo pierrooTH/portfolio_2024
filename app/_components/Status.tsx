@@ -1,19 +1,65 @@
+'use client'
 /* eslint-disable @next/next/no-img-element */
 import { Card } from "@/components/ui/card"
 import { Section } from "./Section"
 import { Building2, Figma, Film, Leaf, LucideIcon, Wallet } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { ContactCard } from "./ContactCard"
+import { motion } from "framer-motion";
+import Image from "next/image"
+import { useRef, useState } from "react"
+
+function getRelativeCoordinates(
+    event: React.MouseEvent<HTMLUListElement>,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    referenceElement: any
+  ) {
+    const position = {
+      x: event.pageX,
+      y: event.pageY,
+    };
+  
+    const offset = {
+      left: referenceElement.offsetLeft,
+      top: referenceElement.clientTop,
+      width: referenceElement.clientWidth,
+      height: referenceElement.clientHeight,
+    };
+  
+    let reference = referenceElement.offsetParent;
+  
+    while (reference) {
+      offset.left += reference.offsetLeft;
+      offset.top += reference.offsetTop;
+      reference = reference.offsetParent;
+    }
+  
+    return {
+      x: position.x - offset.left,
+      y: position.y - offset.top,
+    };
+  }
 
 export const Status = () => {
+    const [mousePosition, setMousePosition] = useState({
+        x: 240,
+        y: 0,
+      });
+      const listRef = useRef(null);
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const handleMouseMove = (e: React.MouseEvent<any>) => {
+        setMousePosition(getRelativeCoordinates(e, listRef.current));
+      };
+
     return (
         <Section className="flex max-lg:flex-col items-start gap-4">
             <div className="flex-[3] w-full">
-                <Card className="w-full p-4 flex flex-col gap-2">
+                <Card ref={listRef}
+                    onMouseMove={(e) => handleMouseMove(e)} className="w-full p-4 flex flex-col gap-2">
                     <p className="text-lg text-muted-foreground font-bold">Projets annexes, fun & professionnels</p>
                     <div className="flex flex-col gap-4">
                         {SIDE_PROJECTS.map((project, index) => (
-                            <SideProject key={index} {...project} />
+                            <SideProject key={index} {...project} mousePosition={mousePosition} />
                         ))}
                     </div>
                 </Card>
@@ -41,22 +87,26 @@ const SIDE_PROJECTS: SideProjectProps[] = [
     {
         Logo: Building2,
         title: "4RH",
-        description: "Conception et développement d'une application web interne pour la gestion des ressources humaines pour l'entreprise Neo4T."
+        description: "Conception et développement d'une application web interne pour la gestion des ressources humaines pour l'entreprise Neo4T.",
+        image: "/images/4RH.png"
     },
     {
         Logo: Leaf,
         title: "Permacool",
-        description: "Conception et développement d'une application mobile from-scratch permettant d'avoir un suivi de ses plantations et des informations sur les plantes pour les utilisateurs."
+        description: "Conception et développement d'une application mobile from-scratch permettant d'avoir un suivi de ses plantations et des informations sur les plantes pour les utilisateurs.",
+        image: "/images/permacool.png"
     },
     {
         Logo: Figma,
         title: "OOTD",
-        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de mode et de vêtements. Réalisation du modèle de données et début du développement."
+        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de mode et de vêtements. Réalisation du modèle de données et début du développement.",
+        image: "/images/ootd3.png"
     },
     {
         Logo: Film,
         title: "MiPi",
-        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de cinéma et de série TV."
+        description: "Réalisation des maquettes du design d'une application de réseau social pour les fans de cinéma et de série TV.",
+        image: "/images/mipi.png"
     },
     {
         Logo: Wallet,
@@ -71,12 +121,38 @@ type SideProjectProps = {
     Logo: LucideIcon,
     title: string,
     description: string
+    image?: string
+    mousePosition?: { x: number, y: number }
 
 }
 
 const SideProject = (props: SideProjectProps) => {
+    const imageHeight = 150;
+    const imageWidth = 300;
+    const imageOffset = 22;
     return (
-        <div className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded">
+        <div className="inline-flex items-center gap-4 hover:bg-accent/50 transition-colors p-1 rounded group">
+
+                {props.image && props.mousePosition && (
+                <motion.div
+                    animate={{
+                    top: props.mousePosition.y - imageHeight - imageOffset,
+                    left: props.mousePosition.x + imageOffset,
+                    }}
+                    initial={false}
+                    transition={{ ease: "easeOut" }}
+                    style={{ width: imageWidth, height: imageHeight }}
+                    className="absolute z-10 hidden overflow-hidden rounded shadow-sm pointer-events-none sm:group-hover:block bg-primary"
+                >
+                    <Image
+                    src={props.image}
+                    alt={props.title}
+                    width={imageWidth}
+                    height={imageHeight}
+                    />
+                </motion.div>
+            )}
+            
             <span className="bg-accent text-accent-foreground p-3 rounded-sm">
                 <props.Logo size={16} />
             </span>
@@ -84,6 +160,7 @@ const SideProject = (props: SideProjectProps) => {
             <p className="text-lg font-semibold">{props.title}</p>
             <p className="text-sm text-muted-foreground">{props.description}</p>
             </div>
+           
         </div>
     )
     
