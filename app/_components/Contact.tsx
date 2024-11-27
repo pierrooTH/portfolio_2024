@@ -7,7 +7,7 @@ export const Contact = () => {
     return (
         <Section className="flex flex-col items-start gap-4">
             <div className="animate-in w-full" style={{ "--index": 6 } as React.CSSProperties}>
-            <Badge variant="outline" color="primary">📞 Contact</Badge>
+            <Badge className="mb-2" variant="outline" color="primary">📞 Contact</Badge>
             <h2 className="pb-2 text-3xl font-semibold tracking-tight first:mt-0">
                 Je serais ravi de travailler avec vous 
             </h2>

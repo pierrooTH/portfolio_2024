@@ -8,7 +8,7 @@ import { TypeScriptIcon } from "./icons/TypeScriptIcon"
 export const Skills = () => {
     return <Section className="flex flex-col items-start gap-4" >
         <div className="animate-in" style={{ "--index": 5 } as React.CSSProperties}>
-        <Badge variant="outline" color="primary">🛠️ Compétences</Badge>
+        <Badge className="mb-2" variant="outline" color="primary">🛠️ Compétences</Badge>
         <h2 className="pb-2 text-3xl font-semibold tracking-tight first:mt-0">
         J&apos;adore travailler avec...
         </h2>
