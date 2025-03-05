@@ -6,7 +6,6 @@ import Link from "next/link"
 
 export const ContactCard = (props: {
     image: string,
-    mediumImage: string,
     name: string,
     description: string,
     url?: string
@@ -16,8 +15,7 @@ export const ContactCard = (props: {
         <Link href={props.url} target="_blank" className="w-full">
             <Card className="p-3 bg-accent/10 hover:bg-accent/30 transition-colors group flex items-center gap-4">
                 <div className="relative">
-                    <Image src={props.image} alt={props.name} width={40} height={40} className="rounded-full object-contain" />
-                    <img src={props.mediumImage} alt={props.name} className="w-4 h-4 absolute -bottom-2 -right-1 rounded-full object-contain" />
+                    <Image src={props.image} alt={props.name} width={40} height={40} className="rounded-lg object-contain" />
                 </div>
                 <div className="flex-1">
                     <div className="flex items-center gap-2">
@@ -32,7 +30,6 @@ export const ContactCard = (props: {
         <Card className="p-3 bg-accent/10 hover:bg-accent/30 transition-colors group flex  w-full items-center gap-4">
             <div className="relative">
                 <Image src={props.image} alt={props.name} width={40} height={40} className="rounded-full object-contain" />
-                <img src={props.mediumImage} alt={props.name} className="w-4 h-4 absolute -bottom-2 -right-1 rounded-full object-contain" />
             </div>
             <div className="flex-1">
                 <div className="flex items-center gap-2">

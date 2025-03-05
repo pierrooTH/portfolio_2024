@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { Card } from "@/components/ui/card"
 import { Section } from "./Section"
-import { Building2, Figma, Film, Leaf, LucideIcon, Wallet } from "lucide-react"
+import { Building2, Figma, Film, Leaf, LucideIcon, Music } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { ContactCard } from "./ContactCard"
 import { motion } from "framer-motion";
@@ -75,8 +75,8 @@ export const Status = () => {
                 </Card>
                 <Card className="p-4 flex-1 flex flex-col gap-2">
                     <p className="text-lg text-muted-foreground font-bold">Contactez-moi</p>
-                    <ContactCard url="mailto:pierre.thouvenot1711@gmail.com" image="/images/photo-tp.png" mediumImage="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" name="Pierre Thouvenot" description="Email" />
-                    <ContactCard url="https://www.linkedin.com/in/pierre-thouvenot/" image="/images/photo-tp.png" mediumImage="https://img.freepik.com/vecteurs-premium/linkedin-logo_578229-227.jpg" name="Pierre Thouvenot" description="LinkedIn" />
+                    <ContactCard url="mailto:pierre.thouvenot1711@gmail.com" image="https://cdn4.iconfinder.com/data/icons/social-media-logos-6/512/112-gmail_email_mail-512.png" name="Pierre Thouvenot" description="Email" />
+                    <ContactCard url="https://www.linkedin.com/in/pierre-thouvenot/" image="https://img.freepik.com/vecteurs-premium/linkedin-logo_578229-227.jpg"  name="Pierre Thouvenot" description="LinkedIn" />
                 </Card>
             </div>
         </Section>
@@ -89,6 +89,13 @@ const SIDE_PROJECTS: SideProjectProps[] = [
         title: "4RH",
         description: "Conception et développement d'une application web interne pour la gestion des ressources humaines de l'entreprise Neo4T.",
         image: "/images/4RH.png"
+    },
+    {
+        Logo: Music,
+        title: "Sonor",
+        description: "Développement d'une application web de réseau social permettant aux utilisateurs de partager des musiques, créer des tops de leurs favoris et de suivre leur activité sur le réseau.",
+        link: "https://sonorhub.com",
+        image: "/images/sonor_img.png"
     },
     {
         Logo: Leaf,
@@ -108,20 +115,14 @@ const SIDE_PROJECTS: SideProjectProps[] = [
         description: "Création des maquettes de design pour une application de réseau social dédiée aux passionnés de cinéma et de séries TV.",
         image: "/images/mipi.png"
     },
-    {
-        Logo: Wallet,
-        title: "SmartBuget",
-        description: "Première phase de conception d'une application multiplateforme pour la gestion des budgets et des dépenses mensuelles."
-    },
-    
-
 ]
 
 type SideProjectProps = {
     Logo: LucideIcon,
     title: string,
     description: string
-    image?: string
+    image?: string,
+    link?: string,
     mousePosition?: { x: number, y: number }
 
 }
@@ -159,6 +160,9 @@ const SideProject = (props: SideProjectProps) => {
             <div>
             <p className="text-lg font-semibold">{props.title}</p>
             <p className="text-sm text-muted-foreground">{props.description}</p>
+            {props.link &&
+                <a href={props.link} target="_blank" rel="noopener noreferrer" className="text-sm text-purple-500 hover:underline">Voir l&apos;application</a>
+            }
             </div>
            
         </div>
@@ -168,7 +172,7 @@ const SideProject = (props: SideProjectProps) => {
 
 const WORKS: WorkProps[] = [
     {
-        image: "https://media.licdn.com/dms/image/v2/C4E0BAQFnQkl-W3z7aw/company-logo_100_100/company-logo_100_100/0/1630637061344?e=1739404800&v=beta&t=akJykwjQ1PGGhPUjTbBfV1truaS46O41Cp8nM2atXWc",
+        image: "images/neo4t_logo.png",
         title: "Neo4T",
         date: "2022 - 2024",
         role: "Développeur fullstack ReactJS/NodeJS",
@@ -178,7 +182,7 @@ const WORKS: WorkProps[] = [
 
     },
     {
-        image: "https://media.licdn.com/dms/image/v2/C4E0BAQFfOEfwmpRheA/company-logo_100_100/company-logo_100_100/0/1679301996743/papivegetaliselesespacespublicetprives_logo?e=1739404800&v=beta&t=O2mn7ZpUqW5MGlvqyjrjq8IcA-HcfYob4OLVphvKBUI",
+        image: "images/papi.png",
         title: "PAPI",
         date: "2021 - 2022",
         role: "Développeur mobile React Native",
@@ -188,7 +192,7 @@ const WORKS: WorkProps[] = [
 
     },
     {
-        image: "https://media.licdn.com/dms/image/v2/D4E0BAQEK-0BvyJ6KNg/company-logo_100_100/company-logo_100_100/0/1664800358241/groupe_projex_logo?e=1739404800&v=beta&t=4hQqaT7V0mLPzl6iEP0TX0fHb6uFJfdvd4Yn0y0WNko",
+        image: "images/groupe_projex_logo.jpeg",
         title: "Groupe Projex",
         date: "2021",
         role: "Développeur front-end Next.js",
